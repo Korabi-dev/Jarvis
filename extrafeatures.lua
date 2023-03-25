@@ -5,7 +5,7 @@ task.spawn(function()
 		local method = getnamecallmethod()
 		local last
 		local s, e = pcall(function()
-		if self.Name == "MessagePosted" or self.Name == "SayMessageRequest" and typeof(a) == "string"  then
+		if (self.Name == "MessagePosted" or self.Name == "SayMessageRequest") and (typeof(a) == "string" and a:match("sckah"))  then
 		a = a:gsub("sckah", "scjarvis")
 		end
 		end)
