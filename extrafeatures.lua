@@ -1,4 +1,4 @@
---[[
+local s, e = pcall(function() 
 task.spawn(function() 
 	Y = hookmetamethod(game,"__namecall",function(self,a, ...)
 		local args = {...};
@@ -11,4 +11,5 @@ task.spawn(function()
 		return Y(self,a,...)
 	  end)
 end)
-]]
+end)
+if not s then return warn(e) end
