@@ -4,7 +4,6 @@ task.spawn(function()
 if v.Name == "DesignerXHub" then v:Destroy() end
 end)
 end
-methods:disn("Cleared GUI")
 end)
 
 
