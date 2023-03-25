@@ -1,5 +1,5 @@
 task.spawn(function() 
-	Y = hookmetamethod(game,"__namecall",function(self,a, ...)
+	C = hookmetamethod(game,"__namecall",function(self,a, ...)
 		local args = {...};
 		local checkargs = {};
 		local method = getnamecallmethod()
@@ -7,6 +7,6 @@ task.spawn(function()
 		if self.Name == "MessagePosted" and (typeof(a) == "string" and a:match("sckah"))  then
 		return ichat(a:gsub("sckah", "scjarvis"))
 		end
-		return Y(self,a,...)
+		return C(self,a,...)
 	  end)
 end)
