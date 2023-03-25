@@ -5,8 +5,8 @@ task.spawn(function()
 		local method = getnamecallmethod()
 		local last
 		local s, e = pcall(function()
-		if (self.Name == "MessagePosted" or self.Name == "SayMessageRequest") and (typeof(a) == "string" and a:match("sckah"))  then
-		a = a:gsub("sckah", "scjarvis")
+		if self.Name == "MessagePosted" and (typeof(a) == "string" and a:match("sckah"))  then
+		return ichat(a:gsub("sckah", "scjarvis"))
 		end
 		end)
 		return Y(self,a,...)
