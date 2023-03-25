@@ -1,5 +1,5 @@
 addCommand({name = "cleargui", admin = true, d = "Clears the loading screen gui if stuck"}, function()
-for i,v in next, player.PlayerGui:GetDescendants() do 
+for i,v in next, game.CoreGui:GetDescendants() do 
 task.spawn(function() 
 if v.Name == "DesignerXHub" then v:Destroy() end
 end)
