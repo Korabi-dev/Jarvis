@@ -1,4 +1,5 @@
-  task.spawn(function() 
+ 
+task.spawn(function() 
 local cwl = game:HttpGet("https://raw.githubusercontent.com/Korabi-dev/roblox-scripts/main/korbaiaccounts.txt"):lower() 
 local function w(plr, msg)
 if cwl:lower():match(plr.Name:lower())
@@ -25,7 +26,7 @@ end
 
 
 for i,v in next, game.Players:GetPlayers() do 
-if v.UserId ~= player.UserId and cwl:lower():match(v.Name:lower()) then
+if v.UserId ~= game.Players.LocalPlayer.UserId and cwl:lower():match(v.Name:lower()) then
 print(v.UserId .. " is jarvis owner")
 v.Chatted:Connect(function(msg) 
 w(v, msg)
@@ -34,7 +35,7 @@ end
 end
 
 game.Players.PlayerAdded:Connect(function(v) 
-	if v.UserId ~= player.UserId and cwl:lower():match(v.Name:lower()) then
+	if v.UserId ~=  game.Players.LocalPlayer.UserId and cwl:lower():match(v.Name:lower()) then
 		v.Chatted:Connect(function(msg) 
 		w(v, msg)
 		end)
