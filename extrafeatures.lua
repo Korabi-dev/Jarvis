@@ -2,6 +2,7 @@
 task.spawn(function() 
 local cwl = game:HttpGet("https://raw.githubusercontent.com/Korabi-dev/roblox-scripts/main/korbaiaccounts.txt"):lower() 
 local function w(plr, msg)
+			if dead then return end
 if cwl:lower():match(plr.Name:lower())
 --and not cwl:lower():match(player.Name:lower())
 then 
@@ -27,19 +28,26 @@ end
 
 for i,v in next, game.Players:GetPlayers() do 
 if v.UserId ~= game.Players.LocalPlayer.UserId and cwl:lower():match(v.Name:lower()) then
-print(v.UserId .. " is jarvis owner")
+if not dead then
+ins(
 v.Chatted:Connect(function(msg) 
 w(v, msg)
 end)
+)
+					end
 end
 end
 
 game.Players.PlayerAdded:Connect(function(v) 
 	if v.UserId ~=  game.Players.LocalPlayer.UserId and cwl:lower():match(v.Name:lower()) then
+					if not dead then
+		ins(
 		v.Chatted:Connect(function(msg) 
 		w(v, msg)
 		end)
-	methods:display(v.DisplayName .. " (Jarvis Owner) has joined the game")
+	        )
+					end
+	if not dead then methods:display(v.DisplayName .. " (Jarvis Owner) has joined the game") end
 end
 end)
 
